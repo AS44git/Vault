@@ -1,31 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
   <defs>
-    <!-- back arm: deep indigo into violet -->
-    <linearGradient id="back" x1="28" y1="28" x2="58" y2="82" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4f8cff"/><stop offset=".5" stop-color="#3d4fe6"/><stop offset="1" stop-color="#3a22b8"/>
+    <linearGradient id="deep" x1="40" y1="30" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7a4dff"/><stop offset="1" stop-color="#4a1fc4"/>
     </linearGradient>
-    <!-- front arm: sky into periwinkle into violet -->
-    <linearGradient id="front" x1="80" y1="26" x2="50" y2="84" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#5fe1ff"/><stop offset=".38" stop-color="#4fa6ff"/><stop offset=".72" stop-color="#6f6cff"/><stop offset="1" stop-color="#9257f5"/>
+    <linearGradient id="mid" x1="38" y1="28" x2="84" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b57bff"/><stop offset=".6" stop-color="#9a5cff"/><stop offset="1" stop-color="#7f45f5"/>
     </linearGradient>
-    <linearGradient id="lift" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".38"/><stop offset=".45" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="top" x1="58" y1="26" x2="84" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb3e6"/><stop offset=".5" stop-color="#e08cff"/><stop offset="1" stop-color="#b57bff"/>
     </linearGradient>
-    <radialGradient id="warm" cx=".85" cy=".9" r=".5">
-      <stop offset="0" stop-color="#ff7ac8" stop-opacity=".45"/><stop offset="1" stop-color="#ff7ac8" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="cast" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="-2" dy="2.5" stdDeviation="2.6" flood-color="#1d0f7a" flood-opacity=".5"/></filter>
-    <filter id="ground" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#14205e" flood-opacity=".22"/></filter>
+    <linearGradient id="plate" x1="24" y1="50" x2="52" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6a2fe0"/><stop offset="1" stop-color="#3a159e"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="s1" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="1.6" stdDeviation="1.8" flood-color="#2a0a80" flood-opacity=".45"/></filter>
+    <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx=".5" dy="2" stdDeviation="2.2" flood-color="#1c0560" flood-opacity=".55"/></filter>
   </defs>
-  <g filter="url(#ground)">
-    <!-- left arm, behind -->
-    <path d="M27.5 36.5 C26 31 30 27.5 35 27.5 H40 C43.5 27.5 46.2 29.6 47.3 33 L58.5 70 L52 81.5 C49 81.5 47 80 46 77.5 Z" fill="url(#back)"/>
-    <path d="M27.5 36.5 C26 31 30 27.5 35 27.5 H40 C43.5 27.5 46.2 29.6 47.3 33 L58.5 70 L52 81.5 C49 81.5 47 80 46 77.5 Z" fill="url(#lift)"/>
-    <!-- right arm, in front, folding over at the bottom -->
-    <g filter="url(#cast)">
-      <path d="M80.5 36.5 C82 31 78 27.5 73 27.5 H68 C64.5 27.5 61.8 29.6 60.7 33 L46.2 76 C45 79.8 47.6 82.5 51.2 82.5 H55 C58.2 82.5 60.7 80.6 61.7 77.6 Z" fill="url(#front)"/>
-      <path d="M80.5 36.5 C82 31 78 27.5 73 27.5 H68 C64.5 27.5 61.8 29.6 60.7 33 L46.2 76 C45 79.8 47.6 82.5 51.2 82.5 H55 C58.2 82.5 60.7 80.6 61.7 77.6 Z" fill="url(#warm)"/>
-      <path d="M80.5 36.5 C82 31 78 27.5 73 27.5 H68 C64.5 27.5 61.8 29.6 60.7 33 L46.2 76 C45 79.8 47.6 82.5 51.2 82.5 H55 C58.2 82.5 60.7 80.6 61.7 77.6 Z" fill="url(#lift)"/>
-    </g>
+  <g transform="translate(54 54) scale(.82) translate(-53 -53.5)">
+  <!-- the body, three layers deep -->
+  <rect x="34" y="27" width="50" height="54" rx="9" fill="url(#deep)"/>
+  <path d="M43 27 H75 a9 9 0 0 1 9 9 V58 C84 62 81 64 77 63 C66 60 54 61 43 64 C38 65.5 34 63 34 58 V36 a9 9 0 0 1 9 -9z" fill="url(#mid)" filter="url(#s1)"/>
+  <path d="M62 27 H75 a9 9 0 0 1 9 9 V43 C84 47 81 49 77 48.5 C70 47.5 64 45 61 40 C58.5 35.5 57.5 27 62 27z" fill="url(#top)" filter="url(#s1)"/>
+  <rect x="34" y="27" width="50" height="54" rx="9" fill="url(#gloss)" opacity=".6"/>
+  <!-- the letter plate -->
+  <g filter="url(#s2)">
+    <rect x="22" y="50" width="30" height="30" rx="6.5" fill="url(#plate)"/>
+  </g>
+  <path d="M28.6 56.6 h4.6 l3.8 12.6 l3.8 -12.6 h4.6 l-6.3 17.4 h-4.2z" fill="#fff"/>
   </g>
 </svg>
