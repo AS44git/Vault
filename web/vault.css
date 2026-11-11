@@ -1,4 +1,5 @@
 /* Vault: a dark case of doors; each opens into a section dressed as its own app. */
+[hidden] { display: none !important; }
 :root {
   /* the vault itself (always dark) */
   --vault-bg: #000000;
