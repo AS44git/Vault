@@ -1,0 +1,38 @@
+<title>Vault</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=TikTok+Sans:opsz,wght@12..36,400..800&display=swap">
+<link rel="stylesheet" href="vault.css">
+
+<main id="hub" class="view" aria-label="Vault">
+  <header class="mast">
+    <div class="wordmark">Vault</div>
+    <div class="mast-note" id="hubNote">Everything kept on this device</div>
+  </header>
+  <div id="doors" style="display:flex;flex-direction:column;gap:12px"></div>
+  <p class="hub-hint" id="hubHint">Share videos, chats, documents and notes to Vault from any app, or tap + to add some. Everything stays on this device.</p>
+</main>
+
+<section id="tt" class="view section sec-tt" hidden aria-label="TikTok reposts"></section>
+<section id="ig" class="view section sec-ig" hidden aria-label="Instagram"></section>
+<section id="wa" class="view section sec-wa" hidden aria-label="WhatsApp"></section>
+<section id="word" class="view section sec-of" hidden aria-label="Word"></section>
+<section id="excel" class="view section sec-of" hidden aria-label="Excel"></section>
+<section id="notes" class="view section sec-of" hidden aria-label="Samsung Notes"></section>
+<section id="od" class="view section sec-of" hidden aria-label="OneDrive"></section>
+
+<button class="fab" id="fab" aria-label="Add to Vault">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+</button>
+<div class="scrim" id="scrim" hidden></div>
+<div class="drop" id="drop" hidden>Drop to add to Vault</div>
+<div class="busy" id="busy" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
+<input type="file" id="files" multiple hidden>
+
+<script src="core.js"></script>
+<script src="social.js"></script>
+<script src="whatsapp.js"></script>
+<script src="office.js"></script>
+<script>Vault.start();</script>
