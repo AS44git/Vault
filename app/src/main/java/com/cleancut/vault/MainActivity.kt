@@ -152,7 +152,7 @@ class MainActivity : AppCompatActivity() {
             setSupportZoom(false)
         }
         if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
-            WebSettingsCompat.setAlgorithmicDarkening(web.settings, false)
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(web.settings, false)
         }
         web.setBackgroundColor(Color.BLACK)
         web.addJavascriptInterface(Bridge(), "VaultAndroid")
