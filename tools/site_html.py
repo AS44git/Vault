@@ -24,7 +24,7 @@ cut = body.index('<main id="hub"')
 page = head + body[:cut] + "</head>\n<body>\n" + body[cut:] + "</body>\n</html>\n"
 (out / "index.html").write_text(page, encoding="utf-8")
 
-for name in ("vault.css", "core.js", "whatsapp.js", "social.js", "office.js"):
+for name in ("vault.css", "core.js", "whatsapp.js", "social.js", "office.js", "sync.js"):
     shutil.copy(web / name, out / name)
 shutil.copytree(web / "lib", out / "lib")
 

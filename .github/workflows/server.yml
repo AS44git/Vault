@@ -1,0 +1,37 @@
+# Builds the Vault server (Linux arm64/amd64 and Windows) with the web app inside, and publishes it
+# as the "server" release: download the file for your machine and run it.
+name: Server
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["server/**", "web/**", "tools/site_html.py", ".github/workflows/server.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - run: pip install pillow
+      - run: python3 tools/site_html.py
+      - name: Build
+        run: |
+          rm -rf server/site && cp -r _site server/site
+          cd server
+          mkdir -p ../dist
+          GOOS=linux   GOARCH=arm64 CGO_ENABLED=0 go build -trimpath -ldflags "-s -w" -o ../dist/vault-server-linux-arm64 .
+          GOOS=linux   GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags "-s -w" -o ../dist/vault-server-linux-amd64 .
+          GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags "-s -w" -o ../dist/vault-server-windows.exe .
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete server --yes --cleanup-tag 2>/dev/null || true
+          gh release create server dist/* --title "Vault server" --notes "The Vault server for Linux (arm64, amd64) and Windows. See server/README.md."

@@ -146,6 +146,8 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
             @Suppress("DEPRECATION")
             databaseEnabled = true
+            // a Vault server reached over plain http (on your own network or Tailscale) is allowed too
+            mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
             allowFileAccess = false
             allowContentAccess = false
             mediaPlaybackRequiresUserGesture = false
